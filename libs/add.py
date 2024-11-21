@@ -1,8 +1,10 @@
 class Add:
 
-  def __init__(A:int, B:int) -> None:
+  def __init__(self) -> None:
     self.function_name = "add"
-    self.A = A
-    self.B = B
+
+  def start(self, arguments:list[str]) -> None:
+    A = int(arguments[0])
+    B = int(arguments[1])
 
 

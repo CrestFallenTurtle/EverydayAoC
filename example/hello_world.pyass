@@ -1,0 +1,10 @@
+WAKE UP
+    str="Hello World"
+
+EVERYDAY I WAKE UP
+
+PIECE OF SHIT
+    print $str # Inline comment
+
+FUCK THIS SHIT
+    print "I'm out of here"

@@ -1,6 +1,6 @@
 import backend.parser
 import tempfile
-
+import pytest
 
 def test_parse_file() -> None:
     gut = """
@@ -14,12 +14,18 @@ PIECE OF SHIT
 
 FUCK THIS SHIT
 """
-    with tempfile.NamedTemporaryFile() as tmp_file:
-        tmp_file.write(gut)
-        parsed_file = backend.parser.parse_file(tmp_file.name)
+    parsed_file = ""
+    try:
+        with tempfile.NamedTemporaryFile("w") as tmp_file:
+            tmp_file.write(gut)
 
-    
-    print(parsed_file)
+            parsed_file = backend.parser.parse_file(tmp_file.name)
+
+    except Exception as err:
+        raise Exception from err
+
+    finally:
+        print(parsed_file)
 
 
 def test_parse_variable_section() -> None:
