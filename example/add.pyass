@@ -1,0 +1,15 @@
+WAKE UP
+    a=54
+    b=15
+    c=0 # The result is placed here
+
+EVERYDAY I WAKE UP
+
+PIECE OF SHIT
+    add $a, $b, $c
+    print $c
+
+    add $a, 3, $c
+
+FUCK THIS SHIT
+    print $c # Print the result

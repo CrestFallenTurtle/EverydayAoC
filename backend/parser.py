@@ -3,6 +3,7 @@ from backend.log import warning, error
 from backend.config import VARIABLE_START_SECTION, MAIN_LOOP_SECTION, METHOD_START_SECTION, \
     END_LOOP_SECTION, COMMENTS, REQUIRED_SECTIONS, OPTIONAL_SECTIONS
 from backend.memory import display_variables_in_memory
+from backend.variables import split_up_args
 
 def parse_file(file_path:str) -> list[str]:
     """ 
@@ -128,27 +129,27 @@ def parse_end_loop(file_gut:list[str]) -> list[str]:
     return end_loop_gut
 
 
-def execute_converted_code(namespace:dict[str, any], loop:list[str], definied_variables:list[str]) -> None:
+def execute_converted_code(lib_namespace:dict[str, any], loop:list[str], var_namespace:dict[str, any]) -> None:
     """
     Looks at the pyAss code in the loop list, and executes the corresponding python code
     """
     for line in loop:
-
-        display_variables_in_memory()
-
         # Extract the function and args (hopefully)
-        function, *args = line.split(" ", maxsplit=1)
+        function, *collected_args = line.split(" ", maxsplit=1)
 
+        #display_variables_in_memory(var_namespace)
+        args = split_up_args(collected_args, var_namespace)
+
+        # Goes through everything defined in the namespace, and find the called function
         found_function = False
 
-        # Goes through everything defined in the namespace
-        for lib_function in namespace.keys():
+        for lib_function in lib_namespace.keys():
 
             # And if the called function matches a builtin function
             # then we call it and pass all the arguments provided
             if lib_function == function:
-                class_object = namespace[lib_function]
-                class_object.start(args)
+                class_object = lib_namespace[lib_function]
+                class_object.start(args, var_namespace)
                 found_function = True
 
         if not found_function:

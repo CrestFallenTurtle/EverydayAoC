@@ -1,9 +1,10 @@
 import importlib
 import os
 from backend.config import LIBS_LOCATION
-from backend.log import debug
+from backend.log import debug, warning
 
-def create_namespace() -> dict[str, any]:
+
+def create_lib_namespace() -> dict[str, any]:
     """
     Looks in the 'libs' folder and dynamically creates a namespace,
     which is returned back to the program
@@ -13,7 +14,7 @@ def create_namespace() -> dict[str, any]:
     }
 
     for lib in os.listdir(LIBS_LOCATION):
-        if lib in ["__init__.py", "__pycache__"]:
+        if lib in ["__init__.py", "__pycache__", "README.md"]:
             continue
 
         debug(f"found library {LIBS_LOCATION}/{lib}")
@@ -30,5 +31,49 @@ def create_namespace() -> dict[str, any]:
 
         debug(f"generated and added library {module_name} to the namespace")
 
+
+    return namespace
+
+def create_var_namespace(variables:list[str]) -> dict[str, any]:
+    """
+    Obtains the variables found during parsing,
+    and constructs a "namespace" for them to exist
+    and live their life until death.
+
+    This namespace/retirement home is returned to the program
+    """
+    namespace = {
+
+    }
+
+    is_a_string = False
+    for var in variables:
+        # Obtain the variable
+        var_name, var_value = var.split("=", maxsplit=1)
+
+        if var_name in namespace.keys():
+            warning(f"Variable '{var_name}' has already been defined, will overwrite it with a new entry")
+
+        # Remove unnecessary extra ""
+        if var_value.startswith('"'):
+            is_a_string = True
+            var_value = var_value[1:]
+
+        if var_value.endswith('"'):
+            is_a_string = True
+            var_value = var_value[:-1]
+
+
+        # If the variable is an integer, then we should try to convert it
+        if not is_a_string:
+            try:
+                int_var_value = int(var_value)
+                var_value = int_var_value
+            except ValueError:
+                debug(f"Failed to convert {var_value} to integer")
+
+
+        debug(f"inserting var {var_name} with value {var_value} into the namespace")
+        namespace[var_name] = var_value
 
     return namespace
