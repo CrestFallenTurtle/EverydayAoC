@@ -1,5 +1,6 @@
 # PyAss
-Everyday I wake up 😭😭😭😭
+
+![](images/craiyon_125433_A_slithering_diamondback_rattlesnake_casually_coils_across_a_table__eyeing_a_pile_of_.png)
 
 
 
