@@ -1,6 +1,6 @@
-
-
-def split_up_args(collected_args:list[str], var_namespace:dict[str, any]) -> list[str]:
+def split_up_args(
+    collected_args: list[str], var_namespace: dict[str, any]
+) -> list[str]:
     """
     Parses the obtained line converts the arguments being sent
     into a string list for easier handling, this will also handle any

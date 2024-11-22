@@ -1,6 +1,7 @@
 from backend.log import warning
 
-def obtain_variable_value(variable:str, var_namespace:dict[str, any]) -> any:
+
+def obtain_variable_value(variable: str, var_namespace: dict[str, any]) -> any:
     """
     Looks up the variable name in the variable namespace, and returns it's assigned
     value if it's found.

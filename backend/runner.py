@@ -1,7 +1,10 @@
-from backend.tools import split_up_args
 from backend.log import error
+from backend.tools import split_up_args
 
-def execute_converted_code(lib_namespace:dict[str, any], loop:list[str], var_namespace:dict[str, any]) -> None:
+
+def execute_converted_code(
+    lib_namespace: dict[str, any], loop: list[str], var_namespace: dict[str, any]
+) -> None:
     """
     Looks at the pyAss code in the loop list, and executes the corresponding python code
     """
@@ -9,7 +12,7 @@ def execute_converted_code(lib_namespace:dict[str, any], loop:list[str], var_nam
         # Extract the function and args (hopefully)
         function, *collected_args = line.split(" ", maxsplit=1)
 
-        #display_variables_in_memory(var_namespace)
+        # display_variables_in_memory(var_namespace)
         args = split_up_args(collected_args, var_namespace)
 
         # Goes through everything defined in the namespace, and find the called function

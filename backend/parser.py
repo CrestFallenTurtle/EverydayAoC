@@ -1,11 +1,14 @@
 from os.path import exists
+
+from backend.config import (COMMENTS, END_LOOP_SECTION, MAIN_LOOP_SECTION,
+                            METHOD_START_SECTION, OPTIONAL_SECTIONS,
+                            REQUIRED_SECTIONS, VARIABLE_START_SECTION)
 from backend.log import warning
-from backend.config import VARIABLE_START_SECTION, MAIN_LOOP_SECTION, METHOD_START_SECTION, \
-    END_LOOP_SECTION, COMMENTS, REQUIRED_SECTIONS, OPTIONAL_SECTIONS
 from backend.memory import display_variables_in_memory
 
-def parse_file(file_path:str) -> list[str]:
-    """ 
+
+def parse_file(file_path: str) -> list[str]:
+    """
     Reads the provided file, removes newlines, tabs and empty lines,
     and returns the parsed results
     """
@@ -32,11 +35,12 @@ def parse_file(file_path:str) -> list[str]:
         if not line or line == " ":
             continue
 
-        extracted_fields.append( line )
+        extracted_fields.append(line)
 
     return extracted_fields
 
-def identify_sections(file_gut:list[str]) -> None:
+
+def identify_sections(file_gut: list[str]) -> None:
     """
     Goes through the file gut and ...
         - Raises an exception if a required section is not identified
@@ -52,12 +56,12 @@ def identify_sections(file_gut:list[str]) -> None:
             warning(f"An optional section, {section}, was not found")
 
 
-def parse_variable_section(file_gut:list[str]) -> list[str]:
+def parse_variable_section(file_gut: list[str]) -> list[str]:
     """
     Parses the input file and identifies every defined variable,
     these are returned back to the calling method
     """
-    declared_variables:list[str] = []
+    declared_variables: list[str] = []
     collect_vars: bool = False
 
     for line in file_gut:
@@ -76,19 +80,21 @@ def parse_variable_section(file_gut:list[str]) -> list[str]:
 
     return declared_variables
 
-def parse_method_section(file_gut:list[str]) -> list[str]:
+
+def parse_method_section(file_gut: list[str]) -> list[str]:
     """
     Parses the input file and identifies every defined method,
     these are returned back to the calling method
     """
     pass
 
-def parse_main_loop(file_gut:list[str]) -> list[str]:
+
+def parse_main_loop(file_gut: list[str]) -> list[str]:
     """
     Parses the input file and creates the main loop of the program,
     the contents of the main loop is returned back to the calling method
     """
-    main_loop_gut:list[str] = []
+    main_loop_gut: list[str] = []
     collect: bool = False
 
     for line in file_gut:
@@ -105,12 +111,13 @@ def parse_main_loop(file_gut:list[str]) -> list[str]:
 
     return main_loop_gut
 
-def parse_end_loop(file_gut:list[str]) -> list[str]:
+
+def parse_end_loop(file_gut: list[str]) -> list[str]:
     """
     Parses the input file and creates the end loop of the program,
     the contents of the end loop is returned back to the calling method
     """
-    end_loop_gut:list[str] = []
+    end_loop_gut: list[str] = []
     collect: bool = False
 
     for line in file_gut:
@@ -126,5 +133,3 @@ def parse_end_loop(file_gut:list[str]) -> list[str]:
             end_loop_gut.append(line)
 
     return end_loop_gut
-
-
