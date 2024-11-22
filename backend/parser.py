@@ -1,10 +1,15 @@
 from os.path import exists
 
-from backend.config import (COMMENTS, END_LOOP_SECTION, MAIN_LOOP_SECTION,
-                            METHOD_START_SECTION, OPTIONAL_SECTIONS,
-                            REQUIRED_SECTIONS, VARIABLE_START_SECTION)
+from backend.config import (
+    COMMENTS,
+    END_LOOP_SECTION,
+    MAIN_LOOP_SECTION,
+    METHOD_START_SECTION,
+    OPTIONAL_SECTIONS,
+    REQUIRED_SECTIONS,
+    VARIABLE_START_SECTION,
+)
 from backend.log import warning
-from backend.memory import display_variables_in_memory
 
 
 def parse_file(file_path: str) -> list[str]:
@@ -86,7 +91,24 @@ def parse_method_section(file_gut: list[str]) -> list[str]:
     Parses the input file and identifies every defined method,
     these are returned back to the calling method
     """
-    pass
+    declared_methods: list[str] = []
+    collect_meth: bool = False
+
+    for line in file_gut:
+        # Start collecting variables
+        if line == METHOD_START_SECTION:
+            collect_meth = True
+            continue
+
+        # Stop collecting variables if we hit this section
+        if line in [VARIABLE_START_SECTION, MAIN_LOOP_SECTION, END_LOOP_SECTION]:
+            collect_meth = False
+            continue
+
+        if collect_meth:
+            declared_methods.append(line)
+
+    return declared_methods
 
 
 def parse_main_loop(file_gut: list[str]) -> list[str]:

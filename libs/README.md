@@ -19,13 +19,18 @@ All the magic is left to be done in the `start` method, which is required to hav
     * self
     * arguments:list[str]
     * var_namespace:dict[str, any]
+    * method_namespace:dict[str, any]
+    * lib_namespace:dict[str, any]
 
 If these aren't present, or if there is more arguments, then the main importer will fail to import your class
 
 So, to give a shitty explanation on things here, 
 
-    * `arguments` will contain every argument passed to your method
-    * `var_namespace` is a namespace where every variable definied will be contained
+    * arguments will contain every argument passed to your method
+    * var_namespace is a namespace were every variable definied will be contained
+    * method_namespace is a namespace were every method definied will be contained
+    * lib_namespace is a namespace were every library definied will be contained
+
     
 #### Example class
 Here is an example class that you can easily build ontop off
@@ -35,7 +40,13 @@ class <Class Name>:
     def __init__(self) -> None:
         self.function_name = "<function to call to execute this class>"
 
-    def start(self, arguments:list[str], var_namespace:dict[str, any]) -> None:
+        def start(
+        self,
+        arguments: list[str],
+        var_namespace: dict[str, any],
+        method_namespace: dict[str, any],
+        lib_namespace: dict[str, any],
+    ) -> None:
         """ main meat method each library """
         < do the libraries magic >
 

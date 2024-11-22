@@ -10,7 +10,13 @@ class Print:
     def __init__(self) -> None:
         self.function_name = "print"
 
-    def start(self, arguments: list[str], var_namespace: dict[str, any]) -> None:
+    def start(
+        self,
+        arguments: list[str],
+        var_namespace: dict[str, any],
+        method_namespace: dict[str, any],
+        lib_namespace: dict[str, any],
+    ) -> None:
         """main meat method each library"""
 
         for value in arguments:

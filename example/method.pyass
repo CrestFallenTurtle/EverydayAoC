@@ -1,0 +1,19 @@
+WAKE UP
+    str="Hello World"
+    a=10
+    b=20
+    c=0
+
+EVERYDAY I WAKE UP
+
+    foo:
+        print $str
+        add $a, $b, $c
+
+    boo:
+        print $c
+
+PIECE OF SHIT
+    gtfo foo, boo
+
+FUCK THIS SHIT

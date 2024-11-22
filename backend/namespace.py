@@ -76,3 +76,38 @@ def create_var_namespace(variables: list[str]) -> dict[str, any]:
         namespace[var_name] = var_value
 
     return namespace
+
+
+def create_method_namespace(methods: list[str]) -> dict[str, any]:
+    """
+    Obtains the variables found during parsing,
+    and constructs a "namespace" for them to exist
+    and live their life until death.
+
+    This namespace/retirement home is returned to the program
+    """
+    namespace = {}
+    collect_method: bool = False
+    method_name = ""
+    method_gut: list[str] = []
+
+    for method_line in methods:
+
+        # If the line ends with, ":", then it's the methods name
+        if method_line.endswith(":"):
+
+            if collect_method:
+                namespace[method_name] = method_gut
+                # Reset the gut
+                method_gut = []
+
+            method_name = method_line[:-1]
+            collect_method = True
+            continue
+
+        if collect_method:
+            method_gut.append(method_line)
+
+    namespace[method_name] = method_gut
+
+    return namespace

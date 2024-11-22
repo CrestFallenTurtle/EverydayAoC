@@ -3,12 +3,15 @@ from backend.tools import split_up_args
 
 
 def execute_converted_code(
-    lib_namespace: dict[str, any], loop: list[str], var_namespace: dict[str, any]
+    gut: list[str],
+    var_namespace: dict[str, any],
+    method_namespace: dict[str, any],
+    lib_namespace: dict[str, any],
 ) -> None:
     """
     Looks at the pyAss code in the loop list, and executes the corresponding python code
     """
-    for line in loop:
+    for line in gut:
         # Extract the function and args (hopefully)
         function, *collected_args = line.split(" ", maxsplit=1)
 
@@ -22,9 +25,9 @@ def execute_converted_code(
 
             # And if the called function matches a builtin function
             # then we call it and pass all the arguments provided
-            if lib_function == function:
+            if lib_function.lower() == function.lower():
                 class_object = lib_namespace[lib_function]
-                class_object.start(args, var_namespace)
+                class_object.start(args, var_namespace, method_namespace, lib_namespace)
                 found_function = True
 
         if not found_function:

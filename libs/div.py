@@ -7,7 +7,13 @@ class Div:
     def __init__(self) -> None:
         self.function_name = "div"
 
-    def start(self, arguments: list[str], var_namespace: dict[str, any]) -> None:
+    def start(
+        self,
+        arguments: list[str],
+        var_namespace: dict[str, any],
+        method_namespace: dict[str, any],
+        lib_namespace: dict[str, any],
+    ) -> None:
 
         if len(arguments) != 3:
             error(
