@@ -1,0 +1,12 @@
+WAKE UP
+    a=54
+    b=15
+    c=0 Comment: The result is placed here
+
+EVERYDAY I WAKE UP
+
+PIECE OF SHIT
+    rshift $a, $b, $c
+
+FUCK THIS SHIT
+    print $c Comment: Print the result
