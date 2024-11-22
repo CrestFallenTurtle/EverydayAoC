@@ -1,5 +1,6 @@
 import argparse
-from backend.parser import parse_file, parse_variable_section, parse_main_loop, parse_end_loop, parse_method_section, identify_sections, execute_converted_code
+from backend.parser import parse_file, parse_variable_section, parse_main_loop, parse_end_loop, parse_method_section, identify_sections
+from backend.runner import execute_converted_code
 from backend.log import setup_log, error
 from backend.namespace import create_lib_namespace, create_var_namespace
 
