@@ -4,7 +4,7 @@ WAKE UP
 EVERYDAY I WAKE UP
 
 PIECE OF SHIT
-    print $str # Inline comment
+    print $str Comment: Inline comment
 
 FUCK THIS SHIT
     print "I'm out of here"

@@ -2,7 +2,7 @@ from backend.log import warning
 from backend.runner import execute_converted_code
 
 
-class Goto:
+class Gtfo:
     def __init__(self) -> None:
         self.function_name = "gtfo"
 
