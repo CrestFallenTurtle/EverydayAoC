@@ -16,8 +16,6 @@ from backend.parser import (
 )
 from backend.runner import execute_converted_code
 
-setup_log()
-
 
 def main(file_input: str) -> None:
     file_gut: list[str] = []
@@ -54,6 +52,12 @@ if __name__ == "__main__":
         "--file", "-file", help="File to parse and execute", required=True
     )
 
+    parser.add_argument(
+        "--debug", help="Enables debug mode", action="store_true", default=False
+    )
+
     parsed_args = parser.parse_args()
+
+    setup_log(parsed_args.debug)
 
     main(parsed_args.file)

@@ -1,3 +1,7 @@
+import os
+from os.path import isdir
+
+
 def split_up_args(
     collected_args: list[str], var_namespace: dict[str, any]
 ) -> list[str]:
@@ -13,3 +17,28 @@ def split_up_args(
         extracted_args.extend(args)
 
     return extracted_args
+
+
+def collect_python_files(
+    base_dir: str, to_ignore: list[str] = ["__init__.py", "__pycache__", "README.md"]
+) -> list[str]:
+    """
+    Collects all python files found in a given path,
+    performs automatically a recursive call in order
+    to handle folders within folders
+    """
+    found_files = []
+
+    for obj in os.listdir(base_dir):
+        if obj in to_ignore:
+            continue
+
+        path = f"{base_dir}/{obj}"
+
+        if isdir(path):
+            found_files.extend(collect_python_files(path))
+
+        else:
+            found_files.append(path)
+
+    return found_files

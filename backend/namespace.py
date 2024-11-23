@@ -1,8 +1,8 @@
 import importlib
-import os
 
 from backend.config import LIBS_LOCATION
 from backend.log import debug, warning
+from backend.tools import collect_python_files
 
 
 def create_lib_namespace() -> dict[str, any]:
@@ -12,25 +12,34 @@ def create_lib_namespace() -> dict[str, any]:
     """
     namespace = {}
 
-    for lib in os.listdir(LIBS_LOCATION):
-        if lib in ["__init__.py", "__pycache__", "README.md"]:
-            continue
+    for lib in collect_python_files(LIBS_LOCATION):
+        lib = lib.replace("/", ".")
 
-        debug(f"found library {LIBS_LOCATION}/{lib}")
+        debug(f"found library {lib}")
+
+        # Ignore this assignment for now
+        class_name = lib
+        module_path = lib
+
+        # Remove the ending .py trail since this will only cause issues
+        if module_path.endswith(".py"):
+            module_path = module_path.replace(".py", "")
+
+        if class_name.endswith(".py"):
+            class_name = class_name.replace(".py", "")
 
         # Converts, e.g. print to Print (which should be the class name)
-        class_name = lib.title()[:-3]
-        module_name = lib[:-3]
+        class_name = class_name.title()
 
-        lib_class = getattr(
-            importlib.import_module(f"{LIBS_LOCATION}.{module_name}"), class_name
-        )
+        class_name = class_name.split(".")[-1]
+
+        lib_class = getattr(importlib.import_module(f"{module_path}"), class_name)
 
         class_object = lib_class()
 
         namespace[class_object.function_name] = class_object
 
-        debug(f"generated and added library {module_name} to the namespace")
+        debug(f"generated and added library {module_path} to the namespace")
 
     return namespace
 
