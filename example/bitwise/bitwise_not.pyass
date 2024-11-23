@@ -1,0 +1,11 @@
+WAKE UP
+    a=0
+    c=0 Comment: The result is placed here
+
+EVERYDAY I WAKE UP
+
+PIECE OF SHIT
+    bnot $a, $c
+
+FUCK THIS SHIT
+    print $c Comment: Print the result
