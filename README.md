@@ -39,7 +39,7 @@ EVERYDAY I WAKE UP
 ```
 
 ### Main loop Declaration
-All of the meat of the program should primarly be reserved to the main loop, `PIECE OF SHIT`. 
+All of the meat of the program should primarly be reserved to the main loop, `PIECE OF SHIT`. Nothing can be definied in this section, and that should be reserved for the variable and method declaration sections.
 
 #### Example
 ```
@@ -48,7 +48,8 @@ PIECE OF SHIT
 ```
 
 ### Exiting loop Declaration
-The exiting loop, `FUCK THIS SHIT`, is left to be utilized by the user in order to do some last minute things before the software exits.
+The exiting loop, `FUCK THIS SHIT`, is left to be utilized by the user in order to do some last minute things before the software exits. Nothing can be definied in this section, and that should be reserved for the variable and method declaration sections.
+
 
 ```
 FUCK THIS SHIT
