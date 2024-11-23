@@ -8,7 +8,7 @@ from backend.tools import collect_python_files
 
 def create_lib_namespace() -> dict[str, any]:
     """
-    Looks in the 'libs' folder and dynamically creates a namespace,
+    Looks in the 'stdlib' folder and dynamically creates a namespace,
     which is returned back to the program
     """
     namespace = {}

@@ -21,4 +21,4 @@ OPTIONAL_SECTIONS = {
 COMMENTS = "Comment:"
 
 # Library location
-LIBS_LOCATION = "libs"
+LIBS_LOCATION = "stdlib"
