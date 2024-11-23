@@ -1,3 +1,4 @@
+import ast
 import importlib
 
 from backend.config import LIBS_LOCATION
@@ -80,6 +81,18 @@ def create_var_namespace(variables: list[str]) -> dict[str, any]:
                 var_value = int_var_value
             except ValueError:
                 debug(f"Failed to convert {var_value} to integer")
+
+        # Check if a list was entered
+        try:
+            if isinstance(ast.literal_eval(str(var_value)), list):
+                var_value = ast.literal_eval(str(var_value))
+
+            else:
+                debug(
+                    f"Failed to convert {var_value} to a list, assume it's not a list then"
+                )
+        except SyntaxError:
+            debug("Failed to check if the variable could be a list")
 
         debug(f"inserting var {var_name} with value {var_value} into the namespace")
         namespace[var_name] = var_value
