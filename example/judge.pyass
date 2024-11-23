@@ -1,0 +1,23 @@
+WAKE UP
+    a=1
+    b=0
+
+EVERYDAY I WAKE UP
+    foo:
+        print "I'm printed"
+
+    boo:
+        print "I will not be printed"
+
+    coo:
+        print "I'll also be printed"
+
+PIECE OF SHIT
+    judge $a, $b, foo, boo
+
+    print "I'm the second thing being printed"
+
+    judge $a, 20, foo, coo
+
+FUCK THIS SHIT
+    print "I'm out of here"
