@@ -31,6 +31,9 @@ No function calls are allowed to take place within this section, and are reserve
 
 ### Program Layout
 
+### Available syntaxes
+
+
 ### Example program
 ```
 WAKE UP
