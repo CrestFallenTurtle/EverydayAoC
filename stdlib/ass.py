@@ -1,5 +1,5 @@
-from backend.log import error, warning, debug
-from backend.variables import obtain_variable_value
+from backend.log import warning, debug
+from backend.variables import try_get_variable_value
 
 
 class Ass:
@@ -9,6 +9,8 @@ class Ass:
 
     def __init__(self) -> None:
         self.function_name = "ass"
+        self.max_limit = -1  # Sets the max amount of parameters that the user can enter
+        self.lower_limit = 2 # Sets the least amount of parameters needed for the function to work
 
     def start(
         self,
@@ -19,17 +21,11 @@ class Ass:
     ) -> None:
         """main meat method each library"""
 
-        if len(arguments) < 2:
-            error(
-                f"The wrong amount of arguments where sent in, expected least two, got {len(arguments)}"
-            )
-
         value = arguments[0]
         variables = arguments[1:]
 
         # If the value is a variable, let us obtain it
-        if value.startswith("$"):
-            value = obtain_variable_value(value, var_namespace)
+        value = try_get_variable_value(value, var_namespace)
 
         for var in variables:
             # Did the user try to assign a value to something that is not a variable

@@ -1,11 +1,13 @@
 from backend.log import error
 from backend.runner import execute_converted_code
-from backend.variables import obtain_variable_value
+from backend.variables import try_get_variable_value
 
 
 class Judge:
     def __init__(self) -> None:
         self.function_name = "judge"
+        self.max_limit = 4  # Sets the max amount of parameters that the user can enter
+        self.lower_limit = 4 # Sets the least amount of parameters needed for the function to work
 
     def start(
         self,
@@ -15,11 +17,6 @@ class Judge:
         lib_namespace: dict[str, any],
     ) -> None:
         """main meat method each library"""
-
-        if len(arguments) != 4:
-            error(
-                f"The wrong amount of arguments where sent in, expected four, got {len(arguments)}"
-            )
 
         value_a = arguments[0]
         value_b = arguments[1]
@@ -40,11 +37,8 @@ class Judge:
         meth_false_gut = method_namespace[meth_false]
 
         # Check if they are variables, and obtain the corresponding value if true
-        if value_a.startswith("$"):
-            value_a = obtain_variable_value(value_a, var_namespace)
-
-        if value_b.startswith("$"):
-            value_b = obtain_variable_value(value_b, var_namespace)
+        value_a = try_get_variable_value(value_a, var_namespace)
+        value_b = try_get_variable_value(value_b, var_namespace)
 
         # Since we only can work with integers, we will need to convert them
         try:

@@ -1,5 +1,5 @@
 from backend.log import error
-from backend.variables import obtain_variable_value
+from backend.variables import try_get_variable_value, get_variable_name
 
 
 class Bitwise_Or:
@@ -24,16 +24,10 @@ class Bitwise_Or:
 
         # Probably overkill, but create a namespace
         for arg in arguments:
-            if arg.startswith("$"):
+            var_value = try_get_variable_value(arg, var_namespace)
+            arg = get_variable_name(arg)
 
-                # Remove the dollar sign
-                var_value = obtain_variable_value(arg, var_namespace)
-                arg = arg[1:]
-
-                namespace[arg] = var_value
-
-            else:
-                namespace[arg] = arg
+            namespace[arg] = var_value
 
         try:
             # This is so fucking stupid

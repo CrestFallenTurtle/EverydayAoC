@@ -1,11 +1,15 @@
 from backend.log import error
-from backend.variables import obtain_variable_value
+from backend.variables import try_get_variable_value, get_variable_name
 
 
 class Mod:
 
     def __init__(self) -> None:
         self.function_name = "mod"
+        self.max_limit = 3  # Sets the max amount of parameters that the user can enter
+        self.lower_limit = (
+            3  # Sets the least amount of parameters needed for the function to work
+        )
 
     def start(
         self,
@@ -15,25 +19,14 @@ class Mod:
         lib_namespace: dict[str, any],
     ) -> None:
 
-        if len(arguments) != 3:
-            error(
-                f"The wrong amount of arguments where sent in, expected three, got {len(arguments)}"
-            )
-
         namespace = {}
 
         # Probably overkill, but create a namespace
         for arg in arguments:
-            if arg.startswith("$"):
+            var_value = try_get_variable_value(arg, var_namespace)
+            arg = get_variable_name(arg)
 
-                # Remove the dollar sign
-                var_value = obtain_variable_value(arg, var_namespace)
-                arg = arg[1:]
-
-                namespace[arg] = var_value
-
-            else:
-                namespace[arg] = arg
+            namespace[arg] = var_value
 
         try:
             # This is so fucking stupid

@@ -1,5 +1,5 @@
 # Damn what is this guy printing...
-from backend.variables import obtain_variable_value
+from backend.variables import try_get_variable_value
 
 
 class Print:
@@ -9,6 +9,10 @@ class Print:
 
     def __init__(self) -> None:
         self.function_name = "print"
+        self.max_limit = -1  # Sets the max amount of parameters that the user can enter
+        self.lower_limit = (
+            1  # Sets the least amount of parameters needed for the function to work
+        )
 
     def start(
         self,
@@ -20,10 +24,9 @@ class Print:
         """main meat method each library"""
 
         for value in arguments:
-            if value.startswith("$"):
-                value = obtain_variable_value(value, var_namespace)
+            value = try_get_variable_value(value, var_namespace)
 
-            else:
+            if isinstance(value, str):
                 # Remove unnecessary extra ""
                 if value.startswith('"'):
                     value = value[1:]

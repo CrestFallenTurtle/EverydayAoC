@@ -1,10 +1,16 @@
-from backend.log import error, warning
+from backend.log import warning
+from backend.variables import get_variable_name
 
 
 class Obtain:
 
     def __init__(self) -> None:
         self.function_name = "obtain"
+
+        self.max_limit = 1  # Sets the max amount of parameters that the user can enter
+        self.lower_limit = (
+            1  # Sets the least amount of parameters needed for the function to work
+        )
 
     def start(
         self,
@@ -15,16 +21,11 @@ class Obtain:
     ) -> None:
         """main meat method each library"""
 
-        if len(arguments) != 1:
-            error(
-                f"The wrong amount of arguments where sent in, expected one, got {len(arguments)}"
-            )
-
         targeted_variable = arguments[0]
 
-        if not targeted_variable.startswith("$"):
+        stripped_var_name = get_variable_name(targeted_variable)
+
+        if stripped_var_name == targeted_variable:
             warning("The method did not obtain a variable to save the input in")
 
-        targeted_variable = targeted_variable[1:]
-
-        var_namespace[targeted_variable] = input(">> ")
+        var_namespace[stripped_var_name] = input(">> ")

@@ -5,6 +5,8 @@ from backend.runner import execute_converted_code
 class Gtfo:
     def __init__(self) -> None:
         self.function_name = "gtfo"
+        self.max_limit = -1  # Sets the max amount of parameters that the user can enter
+        self.lower_limit = 2 # Sets the least amount of parameters needed for the function to work
 
     def start(
         self,
