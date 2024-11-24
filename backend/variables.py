@@ -16,6 +16,18 @@ def get_variable_name(
     return potential_var
 
 
+def is_variable(potential_var: str) -> bool:
+    """
+    Checks if the provided str is a variable,
+    and returns true if it happens to be so
+    else false
+    """
+    if potential_var.startswith("$"):
+        return True
+
+    return False
+
+
 def try_get_variable_value(
     potential_var: str,
     var_namespace: dict[str, any],

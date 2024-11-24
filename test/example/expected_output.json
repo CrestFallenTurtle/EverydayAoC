@@ -3,6 +3,7 @@
   "example/judge.pyass": "b\"I'm printed\\nI'm the second thing being printed\\nI'll also be printed\\nI'm out of here\\n\"",
   "example/list.pyass": "b\"[1, 2, 3, 4, 'hello world']\\n\"",
   "example/ass.pyass": "b'69\\n69\\n'",
+  "example/length.pyass": "b'5\\n12\\n3\\n'",
 
   "example/bitwise/bitwise_and.pyass": "b'6\\n'",
   "example/bitwise/bitwise_or.pyass": "b'63\\n'",
@@ -23,5 +24,6 @@
   "example/io/print.pyass": "b\"Hello World\\nI'm out of here\\n\"",
 
   "example/string/marriage.pyass": "b'Hello World\\nHello World!\\n'",
-  "example/string/divorce.pyass": "b\"['Hello', 'World!']\\n\""
+  "example/string/divorce.pyass": "b\"['Hello', 'World!']\\n\"",
+  "example/string/strip.pyass": "b'Hello \\n'"
 }

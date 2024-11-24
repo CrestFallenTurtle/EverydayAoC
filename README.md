@@ -68,6 +68,7 @@ General operators
 | `obtain`| Takes a user input, and saves it in a variable  | `obtain $a` |
 | `ass`| Assigns the provided value into one or more variables during runtime | `ass 69, $a, $b` |
 | `judge`| Compares two values, and jumps to one of the corresponding methods as a result | `judge $a, $b, foo, boo` |
+| `length`| Provides the length of a variable, and places it in the last provided variable | `length $a, $b` |
 
 Bitwise operators
 | Function         | Description     | Example |
@@ -95,6 +96,7 @@ String operators
 |--------------|-----------|-----------|
 | `marriages` | Combines two the values of two strings, and saves it in the first variable | `marriage $a, $b` |
 | `divorce` | Splits a string into n-pieces based on a provided delimiter, the results are saved in the second parameter sent in | `divorce $a, $b, " "` |
+| `strip` | Removes the second argument from the first argument | `strip $a, "World"` |
 
 ### Example program
 ```
