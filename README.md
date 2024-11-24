@@ -94,7 +94,7 @@ Math operators
 String operators
 | Function         | Description     | Example |
 |--------------|-----------|-----------|
-| `marriages` | Combines two the values of two strings, and saves it in the first variable | `marriage $a, $b` |
+| `marriage` | Combines two the values of two strings, and saves it in the first variable | `marriage $a, $b` |
 | `divorce` | Splits a string into n-pieces based on a provided delimiter, the results are saved in the second parameter sent in | `divorce $a, $b, " "` |
 | `strip` | Removes the second argument from the first argument | `strip $a, "World"` |
 
