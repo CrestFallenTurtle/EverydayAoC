@@ -2,13 +2,10 @@ import os
 from os.path import isdir
 
 
-def split_up_args(
-    collected_args: list[str], var_namespace: dict[str, any]
-) -> list[str]:
+def split_up_args(collected_args: list[str]) -> list[str]:
     """
     Parses the obtained line converts the arguments being sent
-    into a string list for easier handling, this will also handle any
-    converting a variable call to its actual value
+    into a string list for easier handling
     """
     extracted_args: list[str] = []
 

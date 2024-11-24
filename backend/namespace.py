@@ -60,6 +60,9 @@ def create_var_namespace(variables: list[str]) -> dict[str, any]:
         # Obtain the variable
         var_name, var_value = var.split("=", maxsplit=1)
 
+        var_name = var_name.strip()
+        var_value = var_value.strip()
+
         if var_name in namespace.keys():
             warning(
                 f"Variable '{var_name}' has already been defined, will overwrite it with a new entry"

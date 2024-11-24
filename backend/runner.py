@@ -16,7 +16,7 @@ def execute_converted_code(
         function, *collected_args = line.split(" ", maxsplit=1)
 
         # display_variables_in_memory(var_namespace)
-        args = split_up_args(collected_args, var_namespace)
+        args = split_up_args(collected_args)
 
         # Goes through everything defined in the namespace, and find the called function
         found_function = False
