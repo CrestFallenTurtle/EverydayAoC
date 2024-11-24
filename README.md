@@ -90,7 +90,11 @@ Math operators
 | `inc`| Increments the value of one or more variables by one | `inc $a, $b, $c` |
 | `dec`| Decrement the value of one or more variables by one | `dec $a, $b, $c` |
 
-
+String operators
+| Function         | Description     | Example |
+|--------------|-----------|-----------|
+| `marriages` | Combines two the values of two strings, and saves it in the first variable | `marriage $a, $b` |
+| `divorce` | Splits a string into n-pieces based on a provided delimiter, the results are saved in the second parameter sent in | `divorce $a, $b, " "` |
 
 ### Example program
 ```

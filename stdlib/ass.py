@@ -3,10 +3,6 @@ from backend.variables import try_get_variable_value
 
 
 class Ass:
-    """
-    Implements basic output
-    """
-
     def __init__(self) -> None:
         self.function_name = "ass"
         self.max_limit = -1  # Sets the max amount of parameters that the user can enter

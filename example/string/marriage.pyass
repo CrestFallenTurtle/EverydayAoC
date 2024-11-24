@@ -1,0 +1,14 @@
+WAKE UP
+    str1="Hello"
+    str2=" World"
+
+EVERYDAY I WAKE UP
+
+PIECE OF SHIT
+    marriage $str1, $str2
+    print $str1
+
+    marriage $str1, "!"
+
+FUCK THIS SHIT
+    print $str1

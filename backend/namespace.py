@@ -94,8 +94,8 @@ def create_var_namespace(variables: list[str]) -> dict[str, any]:
                 debug(
                     f"Failed to convert {var_value} to a list, assume it's not a list then"
                 )
-        except SyntaxError:
-            debug("Failed to check if the variable could be a list")
+        except (SyntaxError, ValueError):
+            debug(f"Failed to check if the variable, {var_name}, could be a list")
 
         debug(f"inserting var {var_name} with value {var_value} into the namespace")
         namespace[var_name] = var_value

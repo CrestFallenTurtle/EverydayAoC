@@ -20,5 +20,8 @@
   "example/math/decrement.pyass": "b'Before\\n0\\n20\\n39\\nAfter\\n-1\\n19\\n38\\n'",
 
 
-  "example/io/print.pyass": "b\"Hello World\\nI'm out of here\\n\""
+  "example/io/print.pyass": "b\"Hello World\\nI'm out of here\\n\"",
+
+  "example/string/marriage.pyass": "b'Hello World\\nHello World!\\n'",
+  "example/string/divorce.pyass": "b\"['Hello', 'World!']\\n\""
 }

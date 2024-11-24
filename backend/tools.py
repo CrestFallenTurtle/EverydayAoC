@@ -10,8 +10,16 @@ def split_up_args(collected_args: list[str]) -> list[str]:
     extracted_args: list[str] = []
 
     for arg in collected_args:
-        args = [x.strip() for x in arg.split(",")]
-        extracted_args.extend(args)
+        for x in arg.split(","):
+            x = x.strip()
+
+            if x.startswith('"'):
+                x = x[1:]
+
+            if x.endswith('"'):
+                x = x[:-1]
+
+            extracted_args.append(x)
 
     return extracted_args
 
