@@ -6,6 +6,10 @@ class Bitwise_Not:
 
     def __init__(self) -> None:
         self.function_name = "bnot"
+        self.max_limit = 2  # Sets the max amount of parameters that the user can enter
+        self.lower_limit = (
+            2  # Sets the least amount of parameters needed for the function to work
+        )
 
     def start(
         self,
@@ -14,11 +18,6 @@ class Bitwise_Not:
         method_namespace: dict[str, any],
         lib_namespace: dict[str, any],
     ) -> None:
-
-        if len(arguments) != 2:
-            error(
-                f"The wrong amount of arguments where sent in, expected two, got {len(arguments)}"
-            )
 
         namespace = {}
 
