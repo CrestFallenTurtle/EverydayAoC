@@ -32,7 +32,6 @@ def collect_example_files(base_dir: str = "example") -> list[str]:
 
 def main() -> None:
     example_files = collect_example_files()
-    expected_output: dict = {}
 
     with open(EXPECTED_OUTPUT) as handler:
         expected_output: dict = json.load(handler)
