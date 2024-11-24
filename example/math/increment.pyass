@@ -1,0 +1,13 @@
+WAKE UP
+    a=0
+    b=20
+    c=39
+
+EVERYDAY I WAKE UP
+
+PIECE OF SHIT
+    print "Before", $a, $b, $c
+    inc $a, $b, $c
+
+FUCK THIS SHIT
+    print "After", $a, $b, $c

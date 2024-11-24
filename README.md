@@ -86,7 +86,10 @@ Math operators
 | `sub`| Subs two values, results are placed in the last provided variable | `sub $a, $b, $c` |
 | `mult`| Multiplies two values, results are placed in the last provided variable | `mult $a, $b, $c` |
 | `div`| Divides two values, results are placed in the last provided variable | `div $a, $b, $c` |
-| `mod`| Perfoms a modular operation on two values, results are placed in the last provided variable | `mod $a, $b, $c` |
+| `mod`| Performs a modular operation on two values, results are placed in the last provided variable | `mod $a, $b, $c` |
+| `inc`| Increments the value of one or more variables by one | `inc $a, $b, $c` |
+| `dec`| Decrement the value of one or more variables by one | `dec $a, $b, $c` |
+
 
 
 ### Example program

@@ -16,6 +16,8 @@
   "example/math/mult.pyass": "b'810\\n162\\n'",
   "example/math/div.pyass": "b'3.6\\n18.0\\n'",
   "example/math/mod.pyass": "b'9\\n0\\n'",
+  "example/math/increment.pyass": "b'Before\\n0\\n20\\n39\\nAfter\\n1\\n21\\n40\\n'",
+  "example/math/decrement.pyass": "b'Before\\n0\\n20\\n39\\nAfter\\n-1\\n19\\n38\\n'",
 
 
   "example/io/print.pyass": "b\"Hello World\\nI'm out of here\\n\""
