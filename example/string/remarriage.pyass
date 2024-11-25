@@ -1,0 +1,12 @@
+WAKE UP
+    str1="Hello no!"
+    str2="World"
+
+EVERYDAY I WAKE UP
+
+PIECE OF SHIT
+    Comment: Replaces the "no" in $str1, with the value of $str2
+    remarriage $str1, "no", $str2
+    print $str1
+
+FUCK THIS SHIT

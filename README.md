@@ -69,6 +69,7 @@ General operators
 | `ass`| Assigns the provided value into one or more variables during runtime | `ass 69, $a, $b` |
 | `judge`| Compares two values, and jumps to one of the corresponding methods as a result | `judge $a, $b, foo, boo` |
 | `length`| Provides the length of a variable, and places it in the last provided variable | `length $a, $b` |
+| `index`| Indexes the provided variable at the provided index, and places the result in the last provided variable | `index $a, 2, $b` |
 
 Bitwise operators
 | Function         | Description     | Example |
@@ -97,6 +98,7 @@ String operators
 | `marriage` | Combines two the values of two strings, and saves it in the first variable | `marriage $a, $b` |
 | `divorce` | Splits a string into n-pieces based on a provided delimiter, the results are saved in the second parameter sent in | `divorce $a, $b, " "` |
 | `strip` | Removes the second argument from the first argument | `strip $a, "World"` |
+| `remarriage` | Replaces a value within a given string | `remarriage $str1, "no", $str2` |
 
 ### Example program
 ```

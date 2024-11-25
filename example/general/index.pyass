@@ -1,0 +1,20 @@
+WAKE UP
+    arr=[1,2,3,4, "hello world"]
+    str="Hello"
+    int=112233
+    result=""
+
+EVERYDAY I WAKE UP
+
+PIECE OF SHIT
+    index $arr, 3, $result
+
+    print $result
+
+    index $str, 1, $result
+    print $result
+
+    index $int, 3, $result
+    print $result
+
+FUCK THIS SHIT
