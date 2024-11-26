@@ -2,7 +2,7 @@
 
 [![Testing if all example files work](https://github.com/CrestFallenTurtle/PyAss/actions/workflows/example_files.yml/badge.svg)](https://github.com/CrestFallenTurtle/PyAss/actions/workflows/example_files.yml) [![Testing backend](https://github.com/CrestFallenTurtle/PyAss/actions/workflows/test_backend.yml/badge.svg)](https://github.com/CrestFallenTurtle/PyAss/actions/workflows/test_backend.yml)
 
-![](images/craiyon_125433_A_slithering_diamondback_rattlesnake_casually_coils_across_a_table__eyeing_a_pile_of_.png)
+![Boris The Snake](images/output.jpg)
 
 
 
